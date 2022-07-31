@@ -38,7 +38,7 @@ describe('Opens ebay.es and searches for watches Suunto 9', () => {
     cy.get('input[aria-label="Azul"]')
     .should('exist')
     .eq(0)
-    .click()
+    .check()
   })
   it('Should check the price of "Suunto 9 Azul" smartwatch on ebay.com', () => {
     cy.get('div.s-item__detail.s-item__detail--primary > span.s-item__price')
