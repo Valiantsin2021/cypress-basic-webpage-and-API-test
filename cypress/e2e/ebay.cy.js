@@ -33,4 +33,17 @@ describe('Opens ebay.es and searches for watches Suunto 9', () => {
       .eq(1)
       .should('have.text', '266,85 EUR')
   })
+
+  it('Should search the "Suunto 9 Azul" smartwatch on ebay.com', () => {
+    cy.get('input[aria-label="Azul"]')
+    .should('exist')
+    .eq(0)
+    .click()
+  })
+  it('Should check the price of "Suunto 9 Azul" smartwatch on ebay.com', () => {
+    cy.get('div.s-item__detail.s-item__detail--primary > span.s-item__price')
+      .eq(1)
+      .should('have.text', '383,36 EUR')
+  })
+
 })
