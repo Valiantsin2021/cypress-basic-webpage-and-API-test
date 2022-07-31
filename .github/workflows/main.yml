@@ -1,19 +1,22 @@
-# This is a basic workflow to help you get started with Actions
+name: GitlabSync
 
-name: Cypress Tests
+on:
+  - push
+  - delete
 
-on: [push]
-  
 jobs:
-  cypress-run:
+  sync:
     runs-on: ubuntu-latest
+    name: Git Repo Sync
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      
-      - name: Cypress run
-        uses: cypress-io/github-action@v4
-        with:
-          build: npm run build
-        
-  
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: wangchucheng/git-repo-sync@v0.1.0
+      with:
+        # Such as https://github.com/wangchucheng/git-repo-sync.git
+        target-url: ${{ secrets.TARGET_URL }}
+        # Such as wangchucheng
+        target-username: ${{ secrets.TARGET_USERNAME }}
+          # You can store token in your project's 'Setting > Secrets' and reference the name here. Such as ${{ secrets.ACCESS\_TOKEN }}
+        target-token: ${{ secrets.TARGET_TOKEN }}
