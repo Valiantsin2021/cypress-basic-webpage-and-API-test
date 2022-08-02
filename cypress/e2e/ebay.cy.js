@@ -24,26 +24,30 @@ describe('Opens ebay.es and searches for watches Suunto 9', () => {
       .type('Suunto 9')
     cy.get('#gh-btn')
       .click()
-  })
-
-  it('Should check the price of "Suunto 9" smartwatch on ebay.com', () => {
     cy.get("img[alt='Reloj deportivo - Suunto 9, Negro, Pulsómetro, Barómetro, 120 horas Autonomía']")
       .should('have.attr', 'src')
-    cy.get('div.s-item__detail.s-item__detail--primary > span.s-item__price')
-      .eq(1)
-      .should('have.text', '266,85 EUR')
+    // cy.get('div.s-item__detail.s-item__detail--primary > span.s-item__price')
+    //   .eq(1)
+    //   .should('contain.text', '266,85 EUR')
+    cy.get('#srp-river-results > ul > li:nth-child(1) > div > div.s-item__info.clearfix > a > h3')
+      .should('have.text', 'Reloj deportivo - Suunto 9, Negro, Pulsómetro, Barómetro, 120 horas Autonomía')
   })
 
-  it('Should search the "Suunto 9 Azul" smartwatch on ebay.com', () => {
-    cy.get('input[aria-label="Azul"]')
+  it('Should search the "Suunto 9 Negro" smartwatch on ebay.com using checkbox', () => {
+    cy.get('input[aria-label="Negro"]')
     .should('exist')
     .eq(0)
     .check()
   })
-  it('Should check the price of "Suunto 9 Azul" smartwatch on ebay.com', () => {
-    cy.get('div.s-item__detail.s-item__detail--primary > span.s-item__price')
-      .eq(1)
-      .should('have.text', '383,36 EUR')
+  it('Should check the existense of "Suunto 9 Negro" smartwatch on ebay.com', () => {
+    // cy.get('div.s-item__detail.s-item__detail--primary > span.s-item__price')
+    //   .eq(1)
+    //   .should('have.text', '369,00 EUR')
+    cy.get("img[alt='Reloj deportivo - Suunto 9, Negro, Pulsómetro, Barómetro, 120 horas Autonomía']")
+      .should('have.attr', 'src')
+    cy.get('#srp-river-results > ul > li:nth-child(2) > div > div.s-item__info.clearfix > a > h3')
+      .should('contain.text', 'Reloj deportivo - Suunto 9, Negro')
+
   })
 
 })
