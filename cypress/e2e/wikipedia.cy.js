@@ -23,6 +23,7 @@ describe('Opens wikipedia website and search for Estación de Atocha-Cercanías 
     it('Check the image is present on the "Atocha-Cercanias" page', () => {
         cy.get('img[alt="Estación de Atocha (Madrid) 02.jpg"]')
         .should('be.visible')
+        cy.screenshot('my-image')
     })
     it('Checks the presence and contain of Situacion ferrovialia list on the page', () => {
         cy.get('#mw-content-text  ul:nth-child(7) > li')
@@ -35,5 +36,6 @@ describe('Opens wikipedia website and search for Estación de Atocha-Cercanías 
         cy.get('#mw-content-text  ul:nth-child(7) > li')
         .eq(2)
         .should('contain', ', punto kilométrico 7,5.')
+        cy.screenshot('my-image1')
     })
 })

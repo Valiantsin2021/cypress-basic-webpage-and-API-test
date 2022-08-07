@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx cypress run",
+    "test": "npx cypress run",
     "cypress:open": "npx cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "api": "json-server --watch  ./cypress/fixtures/db.json",
+    "testapi": "npx cypress run --spec ./cypress/e2e/testApi.cy.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +16,8 @@
     "@shelex/cypress-allure-plugin": "^2.28.0",
     "@testing-library/cypress": "^8.0.3",
     "cypress": "^10.3.1",
-    "cypress-iframe": "^1.0.1"
+    "cypress-iframe": "^1.0.1",
+    "faker": "^4.1.0",
+    "json-server": "^0.15.1"
   }
 }
