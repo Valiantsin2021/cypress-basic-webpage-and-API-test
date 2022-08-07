@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Api setup
+        uses: cypress-io/github-action@v4
+        with:
+          api: npm run api
       
       - name: Cypress run
         uses: cypress-io/github-action@v4
