@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx cypress run",
-    "cypress:open": "npx cypress open",
-    "cypress:run": "cypress run",
+    "build": "cypress run --reporter mochawesome --reporter-options reportDir=cypress/results,overwrite=false,html=false,json=true",
+    "mocha:merge": "npx mochawesome-merge cypress/results/*.json > mochawesome.json",
+    "mocha:marge": "npx marge mochawesome.json",
+    "clean:reports": "del-cli --force ./cypress/results && del-cli --force ./mochawesome-report && del-cli --force ./mochawesome.json",
     "api": "json-server --watch  ./cypress/fixtures/db.json",
-    "testapi": "npx cypress run --spec ./cypress/e2e/testApi.cy.js"
+    "testapi": "npx cypress run --spec ./cypress/e2e/testApi.cy.js",
+    "test": "npm run clean:reports && npm run build && npm run mocha:merge && npm run mocha:marge"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +19,12 @@
     "@testing-library/cypress": "^8.0.3",
     "cypress": "^10.3.1",
     "cypress-iframe": "^1.0.1",
+    "cypress-multi-reporters": "^1.6.1",
+    "del-cli": "^5.0.0",
     "faker": "^4.1.0",
-    "json-server": "^0.15.1"
+    "json-server": "^0.15.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0"
   }
 }

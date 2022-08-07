@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-08-07T18:18:41.443Z",
+    "end": "2022-08-07T18:18:42.065Z",
+    "duration": 622,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "64e5314e-2c87-4925-bd1e-63e6559ec4e3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\testApi1.cy.js",
+      "file": "cypress\\e2e\\testApi1.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c8d8af37-5734-434c-a195-cff1f43698b7",
+          "title": "open api url and test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "open api url and check response status code",
+              "fullTitle": "open api url and test open api url and check response status code",
+              "timedOut": null,
+              "duration": 286,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('https://jsonplaceholder.typicode.com/todos').as('todoRequest').its('body').should('have.length', 200);\ncy.get('@todoRequest').then(response => {\n  expect(response.status).to.be.equal(200);\n  assert.isArray(response.body, 'Todos response is an array');\n});",
+              "err": {},
+              "uuid": "8dc2f413-6260-482a-90b8-cd023df00559",
+              "parentUUID": "c8d8af37-5734-434c-a195-cff1f43698b7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check post method status code",
+              "fullTitle": "open api url and test Check post method status code",
+              "timedOut": null,
+              "duration": 314,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', 'https://jsonplaceholder.typicode.com/todos', {\n  userId: \"11\",\n  title: 'My title',\n  completed: true\n}).as('todoRequest'); // adds new Todo item by defining Todo name\ncy.get('@todoRequest').then(response => {\n  expect(response.status).to.eq(201);\n  cy.wrap(response.body).should('deep.include', {\n    userId: '11',\n    id: 201,\n    title: 'My title',\n    completed: true\n  });\n});",
+              "err": {},
+              "uuid": "d2cdd17b-7e46-4678-b0d2-4fa68407b360",
+              "parentUUID": "c8d8af37-5734-434c-a195-cff1f43698b7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8dc2f413-6260-482a-90b8-cd023df00559",
+            "d2cdd17b-7e46-4678-b0d2-4fa68407b360"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 600,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
