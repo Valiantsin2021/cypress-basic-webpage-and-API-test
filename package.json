@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run",
+    "build": "npx cypress run",
     "cypress:open": "npx cypress open",
     "cypress:run": "cypress run",
     "api": "json-server --watch  ./cypress/fixtures/db.json",
