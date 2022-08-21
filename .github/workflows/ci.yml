@@ -16,6 +16,14 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          build: npm run build
+          build: |
+            npm run api
+            npm run test
+
+      - name: Output test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: RunReports
+          path: testResults
         
   
