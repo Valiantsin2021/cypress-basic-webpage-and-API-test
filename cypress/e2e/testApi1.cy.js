@@ -13,6 +13,12 @@ describe('open api url and test', () => {
         });
     });
     it('Check post method status code', () => {
+        cy.request('GET', 'https://jsonplaceholder.typicode.com/todos', {title: "eightdelectus aut autem", userId: 1}).as('todoRequest');
+        cy.get('@todoRequest').then(response => {
+           expect(response.status).to.eq(200)
+        });
+    });
+    it('Check post method status code', () => {
         cy.request('POST', 'https://jsonplaceholder.typicode.com/todos', { userId: "11", title: 'My title', completed: true}).as('todoRequest');
        // adds new Todo item by defining Todo name
         cy.get('@todoRequest').then(response => {

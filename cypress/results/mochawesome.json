@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-08-21T13:12:50.093Z",
+    "end": "2022-08-21T13:13:26.874Z",
+    "duration": 36781,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8086aabc-3d74-45c3-8796-95d2cce2c1d2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ebay.cy.js",
+      "file": "cypress\\e2e\\ebay.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "249eb2ba-cb42-40a9-951b-a0bccb780905",
+          "title": "Opens ebay.es and searches for watches Suunto 9",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should open ebay.com",
+              "fullTitle": "Opens ebay.es and searches for watches Suunto 9 Should open ebay.com",
+              "timedOut": null,
+              "duration": 3070,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://ebay.es');\ncy.title().should('eq', 'Comprar y Vender Electrónica, Moda, Móviles y mucho más | eBay');",
+              "err": {},
+              "uuid": "254e830f-d894-4977-8017-a4cddb8252c4",
+              "parentUUID": "249eb2ba-cb42-40a9-951b-a0bccb780905",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should open \"Electronica\" link on ebay.com",
+              "fullTitle": "Opens ebay.es and searches for watches Suunto 9 Should open \"Electronica\" link on ebay.com",
+              "timedOut": null,
+              "duration": 4336,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.screenshot('Ebay');\ncy.get(\"#mainContent > div.hl-cat-nav > ul > li:nth-child(3) > a\").should('be.visible').click();",
+              "err": {},
+              "uuid": "d77dffd2-367c-4701-856e-0d6c66957448",
+              "parentUUID": "249eb2ba-cb42-40a9-951b-a0bccb780905",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should open \"Relojes inteligentes\" link on ebay.com",
+              "fullTitle": "Opens ebay.es and searches for watches Suunto 9 Should open \"Relojes inteligentes\" link on ebay.com",
+              "timedOut": null,
+              "duration": 3136,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.screenshot('Ebay-Electroinca');\ncy.get(\"section.b-module.b-visualnav  a:nth-child(8)\").should('be.visible').click();",
+              "err": {},
+              "uuid": "51e4b32f-c36a-4308-892f-5c09c9a29f25",
+              "parentUUID": "249eb2ba-cb42-40a9-951b-a0bccb780905",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should search for \"Suunto 9\" smartwatch on ebay.com",
+              "fullTitle": "Opens ebay.es and searches for watches Suunto 9 Should search for \"Suunto 9\" smartwatch on ebay.com",
+              "timedOut": null,
+              "duration": 13372,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.screenshot('Ebay-Electronica-Relojes');\ncy.url().should('include', '/b/Smartwatches/');\ncy.get('input.gh-tb.ui-autocomplete-input').type('Suunto 9');\ncy.get('#gh-btn').click();\ncy.screenshot('Suunto-9');\ncy.get(\"img[alt='Reloj deportivo - Suunto 9, Negro, Pulsómetro, Barómetro, 120 horas Autonomía']\").should('have.attr', 'src'); // cy.get('div.s-item__detail.s-item__detail--primary > span.s-item__price')\n//   .eq(1)\n//   .should('contain.text', '266,85 EUR')\ncy.get('#srp-river-results > ul > li:nth-child(1) > div > div.s-item__info.clearfix > a > h3').should('contain.text', 'Suunto 9');",
+              "err": {},
+              "uuid": "bd1a1743-3644-48fd-8ed1-a8fcee06834d",
+              "parentUUID": "249eb2ba-cb42-40a9-951b-a0bccb780905",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should search the \"Suunto 9 Negro\" smartwatch on ebay.com using checkbox",
+              "fullTitle": "Opens ebay.es and searches for watches Suunto 9 Should search the \"Suunto 9 Negro\" smartwatch on ebay.com using checkbox",
+              "timedOut": null,
+              "duration": 3166,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[aria-label=\"Negro\"]').should('exist').eq(0).check();",
+              "err": {},
+              "uuid": "f86255dd-1460-4c71-9f47-a9aadd79f907",
+              "parentUUID": "249eb2ba-cb42-40a9-951b-a0bccb780905",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should check the existense of \"Suunto 9 Negro\" smartwatch on ebay.com",
+              "fullTitle": "Opens ebay.es and searches for watches Suunto 9 Should check the existense of \"Suunto 9 Negro\" smartwatch on ebay.com",
+              "timedOut": null,
+              "duration": 5778,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// cy.get('div.s-item__detail.s-item__detail--primary > span.s-item__price')\n//   .eq(1)\n//   .should('have.text', '369,00 EUR')\ncy.screenshot('Suunto-9-Negro');\ncy.get(\"img[alt='Reloj deportivo - Suunto 9, Negro, Pulsómetro, Barómetro, 120 horas Autonomía']\").should('have.attr', 'src');\ncy.get('#srp-river-results > ul > li:nth-child(2) > div > div.s-item__info.clearfix > a > h3').should('contain.text', 'Reloj deportivo - Suunto 9');",
+              "err": {},
+              "uuid": "41958c3c-a97a-46bb-a138-080c733e26cf",
+              "parentUUID": "249eb2ba-cb42-40a9-951b-a0bccb780905",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "254e830f-d894-4977-8017-a4cddb8252c4",
+            "d77dffd2-367c-4701-856e-0d6c66957448",
+            "51e4b32f-c36a-4308-892f-5c09c9a29f25",
+            "bd1a1743-3644-48fd-8ed1-a8fcee06834d",
+            "f86255dd-1460-4c71-9f47-a9aadd79f907",
+            "41958c3c-a97a-46bb-a138-080c733e26cf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 32858,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

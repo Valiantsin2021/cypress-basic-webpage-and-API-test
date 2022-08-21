@@ -5,7 +5,6 @@ describe('Opens ebay.es and searches for watches Suunto 9', () => {
       .should('eq', 'Comprar y Vender Electrónica, Moda, Móviles y mucho más | eBay')
     })
   it('Should open "Electronica" link on ebay.com', () => {
-    // cy.get("#gdpr-banner-accept", { timeout: 10000 }).should('be.visible').click()
     cy.screenshot('Ebay')
     cy.get("#mainContent > div.hl-cat-nav > ul > li:nth-child(3) > a")
     .should('be.visible')
@@ -31,7 +30,7 @@ describe('Opens ebay.es and searches for watches Suunto 9', () => {
     //   .eq(1)
     //   .should('contain.text', '266,85 EUR')
     cy.get('#srp-river-results > ul > li:nth-child(1) > div > div.s-item__info.clearfix > a > h3')
-      .should('have.text', 'Reloj deportivo - Suunto 9, Negro, Pulsómetro, Barómetro, 120 horas Autonomía')
+      .should('contain.text', 'Suunto 9')
   })
   it('Should search the "Suunto 9 Negro" smartwatch on ebay.com using checkbox', () => {
     cy.get('input[aria-label="Negro"]')
@@ -47,6 +46,6 @@ describe('Opens ebay.es and searches for watches Suunto 9', () => {
     cy.get("img[alt='Reloj deportivo - Suunto 9, Negro, Pulsómetro, Barómetro, 120 horas Autonomía']")
       .should('have.attr', 'src')
     cy.get('#srp-river-results > ul > li:nth-child(2) > div > div.s-item__info.clearfix > a > h3')
-      .should('contain.text', 'Reloj deportivo - Suunto 9, Negro')
+      .should('contain.text', 'Reloj deportivo - Suunto 9')
   })
 })

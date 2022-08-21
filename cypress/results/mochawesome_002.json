@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-08-21T13:13:39.448Z",
+    "end": "2022-08-21T13:13:40.033Z",
+    "duration": 585,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2bfb2633-4d97-4af7-ade6-5aafc1780561",
+      "title": "",
+      "fullFile": "cypress\\e2e\\testApi1.cy.js",
+      "file": "cypress\\e2e\\testApi1.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7dc9fafd-8019-471d-93f8-db1a75ded16d",
+          "title": "open api url and test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "open api url and check response status code",
+              "fullTitle": "open api url and test open api url and check response status code",
+              "timedOut": null,
+              "duration": 240,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('https://jsonplaceholder.typicode.com/todos').as('todoRequest').its('body').should('have.length', 200);\ncy.get('@todoRequest').then(response => {\n  expect(response.status).to.be.equal(200);\n  assert.isArray(response.body, 'Todos response is an array');\n});",
+              "err": {},
+              "uuid": "94bbb189-0e6a-4ece-bcca-aed1c50a85c6",
+              "parentUUID": "7dc9fafd-8019-471d-93f8-db1a75ded16d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check post method status code",
+              "fullTitle": "open api url and test Check post method status code",
+              "timedOut": null,
+              "duration": 77,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', 'https://jsonplaceholder.typicode.com/todos', {\n  title: \"eightdelectus aut autem\",\n  userId: 1\n}).as('todoRequest');\ncy.get('@todoRequest').then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "43d87673-b980-4a4c-9ade-ea137f0a8918",
+              "parentUUID": "7dc9fafd-8019-471d-93f8-db1a75ded16d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check post method status code",
+              "fullTitle": "open api url and test Check post method status code",
+              "timedOut": null,
+              "duration": 243,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', 'https://jsonplaceholder.typicode.com/todos', {\n  userId: \"11\",\n  title: 'My title',\n  completed: true\n}).as('todoRequest'); // adds new Todo item by defining Todo name\ncy.get('@todoRequest').then(response => {\n  expect(response.status).to.eq(201);\n  cy.wrap(response.body).should('deep.include', {\n    userId: '11',\n    id: 201,\n    title: 'My title',\n    completed: true\n  });\n});",
+              "err": {},
+              "uuid": "c708625a-0f6c-4324-94c8-a283991c52cc",
+              "parentUUID": "7dc9fafd-8019-471d-93f8-db1a75ded16d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "94bbb189-0e6a-4ece-bcca-aed1c50a85c6",
+            "43d87673-b980-4a4c-9ade-ea137f0a8918",
+            "c708625a-0f6c-4324-94c8-a283991c52cc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 560,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

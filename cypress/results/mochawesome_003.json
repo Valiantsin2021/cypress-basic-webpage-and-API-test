@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-08-21T13:13:42.984Z",
+    "end": "2022-08-21T13:13:58.071Z",
+    "duration": 15087,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8c9dc3d8-2d34-46dc-8f9d-82f4098d998b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\wikipedia.cy.js",
+      "file": "cypress\\e2e\\wikipedia.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6f08245c-f9e7-4f0e-8d26-a81e2756ccc2",
+          "title": "Opens wikipedia website and search for Estación de Atocha-Cercanías page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Opens wikipedia website and check the language is Spanish",
+              "fullTitle": "Opens wikipedia website and search for Estación de Atocha-Cercanías page Opens wikipedia website and check the language is Spanish",
+              "timedOut": null,
+              "duration": 2702,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.wikipedia.org/');\ncy.contains('Español');\ncy.get('#js-link-box-es').click();",
+              "err": {},
+              "uuid": "5e55e245-4c06-4611-8743-0bfc4f9e07a2",
+              "parentUUID": "6f08245c-f9e7-4f0e-8d26-a81e2756ccc2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Searches text \"atocha\" in Spanish Wikipedia",
+              "fullTitle": "Opens wikipedia website and search for Estación de Atocha-Cercanías page Searches text \"atocha\" in Spanish Wikipedia",
+              "timedOut": null,
+              "duration": 1362,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#searchInput').type('atocha');\ncy.get('#searchButton').click();\ncy.url().should('include', 'https://es.wikipedia.org/wiki/Atocha');",
+              "err": {},
+              "uuid": "eedb3827-377b-4418-9242-0e0570064fea",
+              "parentUUID": "6f08245c-f9e7-4f0e-8d26-a81e2756ccc2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Selects \"Atocha-Cercanías\" link",
+              "fullTitle": "Opens wikipedia website and search for Estación de Atocha-Cercanías page Selects \"Atocha-Cercanías\" link",
+              "timedOut": null,
+              "duration": 1492,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Atocha');\ncy.get('a[title=\"Estación de Atocha-Cercanías\"]').eq(0).should('to.have.attr', 'href', '/wiki/Estaci%C3%B3n_de_Atocha-Cercan%C3%ADas').click({\n  multiple: true\n});",
+              "err": {},
+              "uuid": "bd1a3f95-25a5-425e-84f7-a69f4c0544f4",
+              "parentUUID": "6f08245c-f9e7-4f0e-8d26-a81e2756ccc2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check the image is present on the \"Atocha-Cercanias\" page",
+              "fullTitle": "Opens wikipedia website and search for Estación de Atocha-Cercanías page Check the image is present on the \"Atocha-Cercanias\" page",
+              "timedOut": null,
+              "duration": 3767,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('img[alt=\"Estación de Atocha (Madrid) 02.jpg\"]').should('be.visible');\ncy.screenshot('my-image');",
+              "err": {},
+              "uuid": "8521bd80-486c-4bbe-a1f6-fd9dcc1377ce",
+              "parentUUID": "6f08245c-f9e7-4f0e-8d26-a81e2756ccc2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Checks the presence and contain of Situacion ferrovialia list on the page",
+              "fullTitle": "Opens wikipedia website and search for Estación de Atocha-Cercanías page Checks the presence and contain of Situacion ferrovialia list on the page",
+              "timedOut": null,
+              "duration": 3662,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#mw-content-text  ul:nth-child(7) > li').should('exist').eq(0).should('to.contain.text', 'punto kilométrico 0,0.');\ncy.get('#mw-content-text  ul:nth-child(7) > li').eq(1).should('to.have.descendants', 'a');\ncy.get('#mw-content-text  ul:nth-child(7) > li').eq(2).should('contain', ', punto kilométrico 7,5.');\ncy.screenshot('my-image1');",
+              "err": {},
+              "uuid": "9cdee8d9-314a-4160-9247-77d8b77ba495",
+              "parentUUID": "6f08245c-f9e7-4f0e-8d26-a81e2756ccc2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5e55e245-4c06-4611-8743-0bfc4f9e07a2",
+            "eedb3827-377b-4418-9242-0e0570064fea",
+            "bd1a3f95-25a5-425e-84f7-a69f4c0544f4",
+            "8521bd80-486c-4bbe-a1f6-fd9dcc1377ce",
+            "9cdee8d9-314a-4160-9247-77d8b77ba495"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12985,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
