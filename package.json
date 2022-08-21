@@ -7,7 +7,8 @@
     "build": "npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/results,overwrite=false,html=false,json=true",
     "mocha:merge": "npx mochawesome-merge cypress/results/*.json > mochawesome.json",
     "mocha:marge": "npx marge mochawesome.json",
-    "clean:reports": "del-cli --force ./cypress/results && del-cli --force ./mochawesome-report && del-cli --force ./mochawesome.json",
+    "report:copyScreenshots": "cp -r cypress/screenshots cypress/results/html/screenshots",
+    "clean:reports": "del-cli --force ./cypress/results && del-cli --force ./mochawesome-report && del-cli --force ./mochawesome.json && del-cli --force ./cypress/screenshots",
     "api": "json-server --watch  ./cypress/fixtures/db.json",
     "testapi": "npx cypress run --spec ./cypress/e2e//testApi.cy.js",
     "test": "npm run clean:reports && npm run build && npm run mocha:merge && npm run mocha:marge"
