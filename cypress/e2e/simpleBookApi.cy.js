@@ -1,5 +1,3 @@
-
-
 describe('Open Simple Book api url and test http requests GET, POST, PATCH and DELETE', () => {
     const bookId = 5;
     const authToken = 'beb97f238459e7d07e54f51c9fd2c847c38706e05fab484d20a79adb09efe302';
