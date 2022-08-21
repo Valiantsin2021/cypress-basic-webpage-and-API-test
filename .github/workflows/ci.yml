@@ -27,7 +27,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Reports
-          path: mochawesome-report/mochawesome.html
-      - name: Download all workflow run artifacts
-        uses: actions/download-artifact@v3
-  
+          path: mochawesome-report
