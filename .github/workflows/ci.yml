@@ -13,12 +13,13 @@ jobs:
       - name: Install
         run: npm install
       
+      - name: Make directory for results
+        run: mkdir -p testResults
+
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          build: |
-            npm run api
-            npm run test
+          build: npm run test --reporter-mochawesome-export testResults
 
       - name: Output test results
         uses: actions/upload-artifact@v2

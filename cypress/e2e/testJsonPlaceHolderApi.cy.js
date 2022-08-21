@@ -1,13 +1,11 @@
 describe('open api url and test', () => {
-    let todoItem = {
-        userId: '11',
-        id: 201,
-        title: 'My title',
-        completed: true,
-    };
     it('open api url and check response status code', () => {
-        cy.request('https://jsonplaceholder.typicode.com/todos').as('todoRequest').its('body').should('have.length', 200);
-        cy.get('@todoRequest').then(response => {
+        cy.request('https://jsonplaceholder.typicode.com/todos')
+        .as('todoRequest')
+        .its('body')
+        .should('have.length', 200);
+        cy.get('@todoRequest')
+        .then(response => {
             expect(response.status).to.be.equal(200);
             assert.isArray(response.body, 'Todos response is an array')
         });
