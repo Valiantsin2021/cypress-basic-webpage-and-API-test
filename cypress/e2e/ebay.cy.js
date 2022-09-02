@@ -22,7 +22,6 @@ describe('Opens ebay.es and searches for watches Suunto 9', () => {
       .click()
     cy.get("img[alt='Reloj deportivo - Suunto 9, Negro, Pulsómetro, Barómetro, 120 horas Autonomía']")
       .should('have.attr', 'src')
-    cy.pause()
     cy.contains(/Reloj deportivo - Suunto 9/i)
     .should('exist')
     .should('contain.text', 'Reloj deportivo')
