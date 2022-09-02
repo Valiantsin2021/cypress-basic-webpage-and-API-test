@@ -10,7 +10,7 @@
     "report:copyScreenshots": "cp -r cypress/screenshots cypress/results/html/screenshots",
     "clean:reports": "del-cli --force ./cypress/results && del-cli --force ./mochawesome-report && del-cli --force ./mochawesome.json && del-cli --force ./cypress/screenshots",
     "api": "json-server --watch  ./cypress/fixtures/db.json",
-    "testapi": "npx cypress run --spec ./cypress/e2e//testApi.cy.js",
+    "testapi": "npx cypress run --spec ./cypress/localApiTest/testApi.cy.js",
     "test": "npm run clean:reports && npm run build && npm run mocha:merge && npm run mocha:marge"
   },
   "author": "",
@@ -18,7 +18,7 @@
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.28.0",
     "@testing-library/cypress": "^8.0.3",
-    "cypress": "^10.3.1",
+    "cypress": "^10.7.0",
     "cypress-iframe": "^1.0.1",
     "cypress-multi-reporters": "^1.6.1",
     "del-cli": "^5.0.0",

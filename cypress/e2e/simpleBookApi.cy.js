@@ -77,7 +77,7 @@ describe('Open Simple Book api url and test http requests GET, POST, PATCH and D
             });
         });
     });
-    it('Order the book with id "5" and check it order number', () => {
+    it.skip('Order the book with id "5" and check it order number', () => {
         cy.request({
             method:'POST', 
             url:`https://simple-books-api.glitch.me/orders`,
@@ -97,7 +97,7 @@ describe('Open Simple Book api url and test http requests GET, POST, PATCH and D
             orderId = response.body.orderId
         });
     });
-    it(`Check the order: ${orderId} is existing`, () => {
+    it.skip(`Check the order: ${orderId} is existing`, () => {
         cy.request({
             method:'GET', 
             url:`https://simple-books-api.glitch.me/orders`,
@@ -114,7 +114,7 @@ describe('Open Simple Book api url and test http requests GET, POST, PATCH and D
             expect(response.body[0].quantity).to.equal(1)
         });
     });
-    it(`Change customers name in order: ${orderId} using PATCH method and check the orders customer name is changed`, () => {
+    it.skip(`Change customers name in order: ${orderId} using PATCH method and check the orders customer name is changed`, () => {
         cy.request({
             method:'PATCH', 
             url:`https://simple-books-api.glitch.me/orders/${orderId}`,
@@ -143,7 +143,7 @@ describe('Open Simple Book api url and test http requests GET, POST, PATCH and D
             expect(response.body[0].customerName).to.eql('Val');
         });
     });
-    it(`Delete the order: ${orderId} and check there are no active orders`, () => {
+    it.skip(`Delete the order: ${orderId} and check there are no active orders`, () => {
         cy.request({
             method:'DELETE', 
             url:`https://simple-books-api.glitch.me/orders/${orderId}`,
