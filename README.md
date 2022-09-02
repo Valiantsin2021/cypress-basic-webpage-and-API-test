@@ -1,3 +1,6 @@
 # cypress-basic-webpage-test
-## Two smoke tests
-To run tests - npm run build
+## Smoke test for ebay.com search
+## Smoke test for wikipedia search
+## Smoke test API JSONplaceholder
+## Extended test API Simle Book
+To run tests - npm run test
