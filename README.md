@@ -4,4 +4,5 @@
 ## Smoke test API JSONplaceholder
 ## Extended test API Simple Book
 To run tests - npm run test
+
 Cypress dashboard connected, mochawesome acumulative report added, Gitlab mirroring implemented
