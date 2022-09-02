@@ -1,4 +1,9 @@
-describe('Opens ebay.es and searches for watches Suunto 9', () => {
+describe('Opens ebay.es and searches for watches Suunto 9', {
+  retries: {
+    runMode: 2,
+    openMode: 1,
+  }
+}, () => {
   it('Should open ebay.com', () => {
     cy.visit('https://ebay.es')
     cy.title()
