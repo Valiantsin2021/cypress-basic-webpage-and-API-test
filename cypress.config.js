@@ -5,7 +5,6 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
     },
-    excludeSpecPattern: process.env.CI ? ['cypress/e2e/all.cy.js'] : [],
   },
   reporter: 'mochawesome',
   reporterOptions: {
