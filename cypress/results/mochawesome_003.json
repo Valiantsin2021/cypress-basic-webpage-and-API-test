@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2022-09-10T20:47:19.849Z",
-    "end": "2022-09-10T20:47:20.414Z",
-    "duration": 565,
+    "start": "2022-09-10T20:57:08.993Z",
+    "end": "2022-09-10T20:57:09.572Z",
+    "duration": 579,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "06eca0c8-cde8-4ed9-a342-407a2a180332",
+      "uuid": "f29dd335-b174-4a90-baa6-87588deadc52",
       "title": "",
       "fullFile": "cypress\\e2e\\testJsonPlaceHolderApi.cy.js",
       "file": "cypress\\e2e\\testJsonPlaceHolderApi.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "d16a9894-7085-472d-b833-bd873f33c89f",
+          "uuid": "b3057227-b439-45f7-a6ab-8c7e3a2eb9d4",
           "title": "open api url and test",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "open api url and check response status code",
               "fullTitle": "open api url and test open api url and check response status code",
               "timedOut": null,
-              "duration": 225,
+              "duration": 215,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.request('https://jsonplaceholder.typicode.com/todos').as('todoRequest').its('body').should('have.length', 200);\ncy.get('@todoRequest').then(response => {\n  expect(response.status).to.be.equal(200);\n  assert.isArray(response.body, 'Todos response is an array');\n});",
               "err": {},
-              "uuid": "779acfa8-d249-4dac-b55d-392bd77b88a6",
-              "parentUUID": "d16a9894-7085-472d-b833-bd873f33c89f",
+              "uuid": "8c7249a2-635d-4412-b3b2-21ad684b9087",
+              "parentUUID": "b3057227-b439-45f7-a6ab-8c7e3a2eb9d4",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Check post method status code",
               "fullTitle": "open api url and test Check post method status code",
               "timedOut": null,
-              "duration": 63,
+              "duration": 54,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.request('GET', 'https://jsonplaceholder.typicode.com/todos', {\n  title: \"eightdelectus aut autem\",\n  userId: 1\n}).as('todoRequest');\ncy.get('@todoRequest').then(response => {\n  expect(response.status).to.eq(200);\n});",
               "err": {},
-              "uuid": "2dcd8f3d-5a98-4dc8-ae93-48cd09974277",
-              "parentUUID": "d16a9894-7085-472d-b833-bd873f33c89f",
+              "uuid": "9c82a420-4bd0-4e04-8baf-e372599744eb",
+              "parentUUID": "b3057227-b439-45f7-a6ab-8c7e3a2eb9d4",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "Check post method status code",
               "fullTitle": "open api url and test Check post method status code",
               "timedOut": null,
-              "duration": 250,
+              "duration": 283,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "cy.request('POST', 'https://jsonplaceholder.typicode.com/todos', {\n  userId: \"11\",\n  title: 'My title',\n  completed: true\n}).as('todoRequest'); // adds new Todo item by defining Todo name\ncy.get('@todoRequest').then(response => {\n  expect(response.status).to.eq(201);\n  cy.wrap(response.body).should('deep.include', {\n    userId: '11',\n    id: 201,\n    title: 'My title',\n    completed: true\n  });\n});",
               "err": {},
-              "uuid": "8fe582a0-ba53-4a11-bf3d-3844ad54b30e",
-              "parentUUID": "d16a9894-7085-472d-b833-bd873f33c89f",
+              "uuid": "c4ee896d-fa6d-4b57-b425-09fc456f1e0f",
+              "parentUUID": "b3057227-b439-45f7-a6ab-8c7e3a2eb9d4",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "779acfa8-d249-4dac-b55d-392bd77b88a6",
-            "2dcd8f3d-5a98-4dc8-ae93-48cd09974277",
-            "8fe582a0-ba53-4a11-bf3d-3844ad54b30e"
+            "8c7249a2-635d-4412-b3b2-21ad684b9087",
+            "9c82a420-4bd0-4e04-8baf-e372599744eb",
+            "c4ee896d-fa6d-4b57-b425-09fc456f1e0f"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 538,
+          "duration": 552,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

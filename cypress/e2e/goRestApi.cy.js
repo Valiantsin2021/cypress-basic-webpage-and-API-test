@@ -12,10 +12,8 @@ describe('Open GoRest api url and test http requests GET, POST, PATCH and DELETE
     gender: 'female',
     status: 'inactive'
   }
-  let baseUrl = 'https://gorest.co.in/public/v2/users/'
-  let authToken = 'a3672aea6955926bf817d58232ae42882c6eaba1d6a5a10d148482a884ff354d';
   it('should successfully perform GET request on GoRest api', () => {
-      cy.request(baseUrl)
+      cy.request(Cypress.env('urlGoRestApi'))
       .as('request')
       cy.get('@request')
       .then(response => {
@@ -30,9 +28,9 @@ describe('Open GoRest api url and test http requests GET, POST, PATCH and DELETE
   it('should successfully perform POST request on GoRest api and create new user', () => {
     cy.request({
       method: 'POST',
-      url: baseUrl,
+      url: Cypress.env('urlGoRestApi'),
       auth: {
-        bearer: authToken
+        bearer: Cypress.env('token')
       },       
       body: newUser,
     })
@@ -54,7 +52,7 @@ describe('Open GoRest api url and test http requests GET, POST, PATCH and DELETE
   it('should perform GET request and check the created user appeared in the database', () => {
     cy.request({
       method: 'GET',
-      url: baseUrl,
+      url: Cypress.env('urlGoRestApi'),
       qs: {name: newUser.name}
     })
     .as('newUser')
@@ -66,9 +64,9 @@ describe('Open GoRest api url and test http requests GET, POST, PATCH and DELETE
   it('should successfully preform PATCH request to modify the created user', () => {
     cy.request({
       method: 'PATCH',
-      url: `${baseUrl}${userId}`,
+      url: `${Cypress.env('urlGoRestApi')}${userId}`,
       auth: {
-        bearer: authToken
+        bearer: Cypress.env('token')
       },       
       body: patchedUser
     })
@@ -88,7 +86,7 @@ describe('Open GoRest api url and test http requests GET, POST, PATCH and DELETE
   it('should perform GET request and check the updated user appeared in the database', () => {
     cy.request({
       method: 'GET',
-      url: baseUrl,
+      url: Cypress.env('urlGoRestApi'),
       qs: {name: patchedUser.name}
     })
     .as('patchedUser')
@@ -100,9 +98,9 @@ describe('Open GoRest api url and test http requests GET, POST, PATCH and DELETE
   it('should successfully preform DELETE request to delete the created user', () => {
     cy.request({
       method: 'DELETE',
-      url: `${baseUrl}${userId}`,
+      url: `${Cypress.env('urlGoRestApi')}${userId}`,
       auth: {
-        bearer: authToken
+        bearer: Cypress.env('token')
       },       
       failOnStatusCode: false,
     })
@@ -115,7 +113,7 @@ describe('Open GoRest api url and test http requests GET, POST, PATCH and DELETE
   it('should perform GET request and check the is not present in the database', () => {
     cy.request({
       method: 'GET',
-      url: `${baseUrl}${userId}`,
+      url: `${Cypress.env('urlGoRestApi')}${userId}`,
       failOnStatusCode: false,
     })
     .as('deletedUser')
