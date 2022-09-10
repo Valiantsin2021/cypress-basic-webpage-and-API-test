@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx cypress run --record --key f69cd41c-3510-4562-b0ce-7a4133cbc316 --reporter mochawesome --reporter-options reportDir=cypress/results,overwrite=false,html=false,json=true",
+    "build": "npx cypress run --record --key f69cd41c-3510-4562-b0ce-7a4133cbc316",
     "mocha:merge": "npx mochawesome-merge cypress/results/*.json > mochawesome.json",
     "mocha:marge": "npx marge mochawesome.json",
     "report:copyScreenshots": "cp -r cypress/screenshots cypress/results/html/screenshots",

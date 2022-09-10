@@ -1,6 +1,6 @@
 describe('Open Simple Book api url and test http requests GET, POST, PATCH and DELETE', () => {
     const bookId = 5;
-    const authToken = 'beb97f238459e7d07e54f51c9fd2c847c38706e05fab484d20a79adb09efe302';
+    const authToken = Cypress.env('beb97f238459e7d07e54f51c9fd2c847c38706e05fab484d20a79adb09efe302');
     let orderId;
     it('Open Simple Book api url and check response status code', () => {
         cy.request('https://simple-books-api.glitch.me/status')
@@ -15,7 +15,7 @@ describe('Open Simple Book api url and test http requests GET, POST, PATCH and D
             method:'POST', 
             url:'https://simple-books-api.glitch.me/api-clients/',
             failOnStatusCode: false,
-            body: { clientName: "ondra", clientEmail: "me@mail.com"}
+            body: { clientName: "val", clientEmail: "you@mail.com"}
         }).as('authRequest')
         cy.get('@authRequest')
         .then(response => {

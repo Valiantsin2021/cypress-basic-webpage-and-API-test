@@ -24,7 +24,12 @@ Cypress.on('uncaught:exception', (err) => {
     
         addContext({ test }, imageUrl)
       }
+},
+Cypress.Screenshot.defaults({
+  capture: 'viewport'
 })
+
+)
 import '@testing-library/cypress/add-commands'
 require('cypress-iframe')
 

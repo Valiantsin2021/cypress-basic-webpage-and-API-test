@@ -1,0 +1,10 @@
+stages:
+  - test
+
+test:
+  image: node:latest
+  stage: test
+  script:
+    - npm ci
+    - npm run start:ci &
+    - npm run test
