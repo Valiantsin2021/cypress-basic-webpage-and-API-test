@@ -1,6 +1,5 @@
 describe('Open Simple Book api url and test http requests GET, POST, PATCH and DELETE', () => {
     const bookId = 5;
-    const authToken = Cypress.env('beb97f238459e7d07e54f51c9fd2c847c38706e05fab484d20a79adb09efe302');
     let orderId;
     it('Open Simple Book api url and check response status code', () => {
         cy.request('https://simple-books-api.glitch.me/status')
@@ -77,12 +76,12 @@ describe('Open Simple Book api url and test http requests GET, POST, PATCH and D
             });
         });
     });
-    it.skip('Order the book with id "5" and check it order number', () => {
+    it('Order the book with id "5" and check it order number', () => {
         cy.request({
             method:'POST', 
             url:`https://simple-books-api.glitch.me/orders`,
             auth: {
-                bearer: authToken
+                bearer: Cypress.env('SimpleBookApiToken')
               },       
             body: {
                 bookId: bookId,
@@ -97,12 +96,12 @@ describe('Open Simple Book api url and test http requests GET, POST, PATCH and D
             orderId = response.body.orderId
         });
     });
-    it.skip(`Check the order: ${orderId} is existing`, () => {
+    it(`Check the order: ${orderId} is existing`, () => {
         cy.request({
             method:'GET', 
             url:`https://simple-books-api.glitch.me/orders`,
             auth: {
-                bearer: authToken
+                bearer: Cypress.env('SimpleBookApiToken')
               }
         }).as('order')
         cy.get('@order')
@@ -114,12 +113,12 @@ describe('Open Simple Book api url and test http requests GET, POST, PATCH and D
             expect(response.body[0].quantity).to.equal(1)
         });
     });
-    it.skip(`Change customers name in order: ${orderId} using PATCH method and check the orders customer name is changed`, () => {
+    it(`Change customers name in order: ${orderId} using PATCH method and check the orders customer name is changed`, () => {
         cy.request({
             method:'PATCH', 
             url:`https://simple-books-api.glitch.me/orders/${orderId}`,
             auth: {
-                bearer: authToken
+                bearer: Cypress.env('SimpleBookApiToken')
               },
             body: {
                 customerName: 'Val'
@@ -133,7 +132,7 @@ describe('Open Simple Book api url and test http requests GET, POST, PATCH and D
             method:'GET', 
             url:`https://simple-books-api.glitch.me/orders`,
             auth: {
-                bearer: authToken
+                bearer: Cypress.env('SimpleBookApiToken')
               }
         }).as('order')
         cy.get('@order')
@@ -143,12 +142,12 @@ describe('Open Simple Book api url and test http requests GET, POST, PATCH and D
             expect(response.body[0].customerName).to.eql('Val');
         });
     });
-    it.skip(`Delete the order: ${orderId} and check there are no active orders`, () => {
+    it(`Delete the order: ${orderId} and check there are no active orders`, () => {
         cy.request({
             method:'DELETE', 
             url:`https://simple-books-api.glitch.me/orders/${orderId}`,
             auth: {
-                bearer: authToken
+                bearer: Cypress.env('SimpleBookApiToken')
               }
         }).as('delOrder')
         cy.get('@delOrder')
@@ -159,7 +158,7 @@ describe('Open Simple Book api url and test http requests GET, POST, PATCH and D
             method:'GET', 
             url:`https://simple-books-api.glitch.me/orders`,
             auth: {
-                bearer: authToken
+                bearer: Cypress.env('SimpleBookApiToken')
               }
         }).as('order')
         cy.get('@order')

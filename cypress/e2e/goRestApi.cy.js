@@ -30,7 +30,7 @@ describe('Open GoRest api url and test http requests GET, POST, PATCH and DELETE
       method: 'POST',
       url: Cypress.env('urlGoRestApi'),
       auth: {
-        bearer: Cypress.env('token')
+        bearer: Cypress.env('GoRestApiToken')
       },       
       body: newUser,
     })
@@ -66,7 +66,7 @@ describe('Open GoRest api url and test http requests GET, POST, PATCH and DELETE
       method: 'PATCH',
       url: `${Cypress.env('urlGoRestApi')}${userId}`,
       auth: {
-        bearer: Cypress.env('token')
+        bearer: Cypress.env('GoRestApiToken')
       },       
       body: patchedUser
     })
@@ -100,7 +100,7 @@ describe('Open GoRest api url and test http requests GET, POST, PATCH and DELETE
       method: 'DELETE',
       url: `${Cypress.env('urlGoRestApi')}${userId}`,
       auth: {
-        bearer: Cypress.env('token')
+        bearer: Cypress.env('GoRestApiToken')
       },       
       failOnStatusCode: false,
     })
